@@ -1,0 +1,12 @@
+{
+  "name": "AOC-Progress",
+  "version": "1.0.0",
+  "charset": "utf-8",
+  "oeversion": "12.8",
+  "buildPath": [
+    {
+      "type": "source",
+      "path": "src"
+    }
+  ]
+}

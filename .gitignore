@@ -1,0 +1,12 @@
+﻿# OpenEdge / Developer Studio
+.builder/
+.metadata/
+*.r
+*.tmp
+
+# Project specific
+cache.json
+
+# Advent of Code specific
+inputs/
+puzzles/
