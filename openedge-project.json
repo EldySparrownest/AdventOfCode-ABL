@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "charset": "utf-8",
   "oeversion": "12.8",
+  "graphicalMode": true,
   "buildPath": [
     {
       "type": "source",
