@@ -2,18 +2,19 @@
 
 USING Progress.Json.ObjectModel.JsonObject.
 
-DEFINE INPUT PARAMETER inYear AS CHARACTER NO-UNDO.
-DEFINE INPUT PARAMETER inDay  AS CHARACTER NO-UNDO.
+DEFINE INPUT PARAMETER inYear   AS CHARACTER NO-UNDO.
+DEFINE INPUT PARAMETER inDay    AS CHARACTER NO-UNDO.
+DEFINE INPUT PARAMETER inExample    AS LOGICAL NO-UNDO.
 
-DEFINE VARIABLE rootObj  AS JsonObject              NO-UNDO.
-DEFINE VARIABLE lcOut    AS LONGCHAR                NO-UNDO.
-DEFINE VARIABLE fileName AS CHARACTER               NO-UNDO INITIAL "cache.json".
+DEFINE VARIABLE jRootObj    AS JsonObject   NO-UNDO.
+DEFINE VARIABLE cFileName   AS CHARACTER    NO-UNDO INITIAL "cache.json".
 
 /* — Create a JsonObject and assign keys/values — */
-rootObj = NEW JsonObject().
-rootObj:Add("year", inYear).
-rootObj:Add("day", inDay).
+jRootObj = NEW JsonObject().
+jRootObj:Add("year", inYear).
+jRootObj:Add("day", inDay).
+jRootObj:Add("example", inExample).
 
-rootObj:WriteFile(fileName, TRUE).
+jRootObj:WriteFile(cFileName, TRUE).
 
 RETURN.
