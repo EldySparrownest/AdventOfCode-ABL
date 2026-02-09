@@ -1,4 +1,4 @@
-/* json_utils.cls */
+/* JsonUtils.cls */
 
 USING Progress.Json.ObjectModel.JsonObject.
 

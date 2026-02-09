@@ -1,5 +1,7 @@
 /* main.p */
 
+USING utils.FileLoadUtils.
+
 DEFINE VARIABLE cYear     AS CHARACTER  NO-UNDO.
 DEFINE VARIABLE cDay      AS CHARACTER  NO-UNDO.
 DEFINE VARIABLE lExample  AS LOGICAL    NO-UNDO.
@@ -8,6 +10,11 @@ DEFINE VARIABLE lValidDay AS LOGICAL    NO-UNDO.
 DEFINE VARIABLE cReason   AS CHARACTER  NO-UNDO.
 
 DEFINE BUTTON btnOK LABEL "OK".
+
+DEFINE VARIABLE idx AS INTEGER NO-UNDO.
+DEFINE TEMP-TABLE ttLines
+  FIELD LineText AS CHARACTER.
+DEFINE VARIABLE httInput AS HANDLE NO-UNDO.
 
 {day_verification.p}
 
@@ -37,4 +44,9 @@ END.
 /* Save day for next time */
 RUN cache_save.p (INPUT cYear, INPUT cDay, INPUT lExample).
 
-RUN VALUE(get_procedure_path(cYear, cDay)).
+httInput = FileLoadUtils:read_file_lines_tth(
+  INPUT get_input_path(cYear, cDay, lExample)).
+
+RUN VALUE(get_procedure_path(cYear, cDay))(httInput).
+
+PAUSE NO-MESSAGE.
